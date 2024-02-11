@@ -1,0 +1,67 @@
+---------------------
+создать:
+subj = Subject()
+subj.subject_name = 'Test Subject'
+subj.save()
+---------------------
+
+---------------------
+удалить:
+subj = Subject()
+subj.subject_name = 'Test Subject'
+subj.save()
+---------------------
+
+---------------------
+перезаписать:
+subj = Subject()
+subj.subject_name = 'Test Subject'
+subj.save()
+---------------------
+
+---------------------
+#create
+'''
+subj = Subject()
+subj.subject_name = 'Test Subject'
+subj.save()
+'''
+#update
+'''
+subj = Subject()
+subj.subject_id = 7
+subj.subject_name = 'Russian language2'
+subj.save()
+'''
+
+#del_record = Subject.select().where(Subject.subject_id == 19).get()
+#del_record.delete_instance()
+#Subject.delete_by_id(8)    
+'''
+subj = Subject()
+subj.subject_name = 'Test Subject3'
+subj.save()
+'''
+'''
+grou = Group()
+grou. = 'Test Subject3'
+grou.save()
+'''
+'''
+for subject in Subject.select():
+    print(subject.subject_id, subject.subject_name)
+print('-------------------------------------------------------')
+'''
+#class_obj = Classes.select().where(Classes.class_id == 1).get()
+#cls = Classes(class_id=3)
+#print(cls.class_name)
+
+'''
+grou = Group()
+grou.group_id = 1
+grou.group_name = 'Test Group'
+grou.class_id = 2
+grou.save()
+'''
+#insert with foreign key
+#group = Group.create(class_id=1, group_name='Hello again!')
