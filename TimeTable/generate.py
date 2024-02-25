@@ -32,7 +32,7 @@ def create_time():
 
     for time in Teacher_time.select():
         new = Teacher_time_used.create(teacher_time_id = time.teacher_time_id, teacher_id = time.teacher_id, day_name = time.day_name, lesson_number = time.lesson_number)
-    
+
 
     html_class_data = '';
     info_week = Option.get_by_id(1)
@@ -118,7 +118,7 @@ def create_time():
                             abc = possible[i] + 1
                             teach = Teacher.get_by_id(possible[i])
                             subj = Teachers_has_subject.get(Teachers_has_subject.class_id == cls.class_id, Teachers_has_subject.teacher_id == possible[i])
-                            subject = Subject.get_by_id(subj.subject_id)                    
+                            subject = Subject.get_by_id(subj.subject_id)
                             room = Classroom.get_by_id(cls.classroom_id)
                             hour = Lesson_hour_used.select().where(Lesson_hour_used.subject_id == subj.subject_id, Lesson_hour_used.class_id == cls.class_id,).get()
                             hours = Lesson_hour_used.get_by_id(hour)
@@ -199,7 +199,7 @@ def create_time():
                                         room_id = cls.classroom_id
                                     try:
                                         abc = Classroom_time.select().where(Classroom_time.classroom_id == room_id, Classroom_time.day_name == day + 1, Classroom_time.lesson_number == lesson + 1).get()
-                                    except:    
+                                    except:
                                         print('поставили пару')
                                         lessons[lesson] = lesson_data.format(
                                             subject_name = subject.subject_name,
@@ -224,7 +224,7 @@ def create_time():
                                 teacher_name = ''
                             )
                             flag = 1
-                                
+
                     print('-----------------------------')
                     print('')
                 days[day] = day_data.format(
@@ -232,7 +232,7 @@ def create_time():
                     lesson2 = lessons[1],
                     lesson3 = lessons[2],
                     lesson4 = lessons[3]
-                )            
+                )
             html_class_data += class_data.format(
                 class_name = cls.class_name,
                 monday = days[0],
@@ -281,10 +281,10 @@ def create_time():
                                 teach = Teacher.get_by_id(possible[i])
                                 subj1 = Teachers_has_subject.get(Teachers_has_subject.class_id == cls.class_id, Teachers_has_subject.teacher_id == possible[i], Teachers_has_subject.group_id == groups[0])
                                 subj2 = Teachers_has_subject.get(Teachers_has_subject.class_id == cls.class_id, Teachers_has_subject.teacher_id == possible[i], Teachers_has_subject.group_id == groups[1])
-                                subject = Subject.get_by_id(subj1.subject_id)                    
+                                subject = Subject.get_by_id(subj1.subject_id)
                                 room = Classroom.get_by_id(cls.classroom_id)
                                 hour1 = Lesson_hour_used.select().where(Lesson_hour_used.subject_id == subj.subject_id, Lesson_hour_used.class_id == cls.class_id, Lesson_hour_used.group_id == groups[0]).get()
-                                hour2 = Lesson_hour_used.select().where(Lesson_hour_used.subject_id == subj.subject_id, Lesson_hour_used.class_id == cls.class_id, Lesson_hour_used.group_id == groups[1]).get()   
+                                hour2 = Lesson_hour_used.select().where(Lesson_hour_used.subject_id == subj.subject_id, Lesson_hour_used.class_id == cls.class_id, Lesson_hour_used.group_id == groups[1]).get()
                                 hours1 = Lesson_hour_used.get_by_id(hour1)
                                 hours2 = Lesson_hour_used.get_by_id(hour2)
                                 print(hours1.hours, " часов предмета ", subject.subject_name, " у группы ", grou1.group_name)
@@ -347,7 +347,7 @@ def create_time():
                     lesson2 = lessons1[1],
                     lesson3 = lessons1[2],
                     lesson4 = lessons1[3]
-                )            
+                )
                 days2[day] = day_data.format(
                     lesson1 = lessons2[0],
                     lesson2 = lessons2[1],
